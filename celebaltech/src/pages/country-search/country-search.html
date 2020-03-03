@@ -1,0 +1,29 @@
+<!--
+  Generated template for the CountrySearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <ion-title>Country</ion-title>
+
+        <ion-buttons end>
+            <button ion-button color="lighmain" (click)="closePopup()">
+          <ion-icon name="md-close"></ion-icon>
+        </button>
+        </ion-buttons>
+    </ion-navbar>
+    <ion-toolbar>
+        <ion-searchbar placeholder="Select Country" [(ngModel)]="searchTerm" (ionInput)="setFilteredLocations()"></ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list no-lines>
+        <ion-item *ngFor="let location of countrylist">
+
+            <span (click)="selectCountry(location)"> {{location}}</span>
+        </ion-item>
+    </ion-list>
+</ion-content>

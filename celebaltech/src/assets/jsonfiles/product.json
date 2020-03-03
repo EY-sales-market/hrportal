@@ -1,0 +1,101 @@
+[{
+    "screenName": "Patient",
+    "isMulti":"No",
+    "fields": [{
+            "fieldName": "Product Category",
+            "validateField": "Yes",
+            "fieldPlaceHolderName": "Product Category",
+            "fieldType": "DropDown",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": [{
+                "valuesID": "1",
+                "valuesName": "Durg"
+            },
+            {
+                "valuesID": "2",
+                "valuesName": "Device"
+            },
+            {
+                "valuesID": "3",
+                "valuesName": "Vaccine"
+            }
+        ]
+        },
+        {
+            "fieldName": "Product Name",
+            "validateField": "Yes",
+            "fieldPlaceHolderName": "Please enter product Name",
+            "fieldType": "textField",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": []
+        },
+        {
+            "fieldName": "Generic Name",
+            "validateField": "No",
+            "fieldPlaceHolderName": "Please enter generic Name",
+            "fieldType": "textField",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": []
+        },
+        {
+            "fieldName": "Formulation",
+            "validateField": "No",
+            "fieldPlaceHolderName": "Please enter formulation",
+            "fieldType": "textField",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": []
+        },
+        {
+            "fieldName": "Interaction",
+            "validateField": "No",
+            "fieldPlaceHolderName": "Please enter interaction",
+            "fieldType": "textField",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": []
+        },
+        {
+            "fieldName": "Concentration",
+            "validateField": "No",
+            "fieldPlaceHolderName": "Please enter concentration",
+            "fieldType": "numericTextView",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": []
+        },
+        {
+            "fieldName": "Units",
+            "validateField": "No",
+            "fieldPlaceHolderName": "Weight Units",
+            "fieldType": "DropDown",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": [{
+                "valuesID": "1",
+                "valuesName": "milligrams"
+            },
+            {
+                "valuesID": "2",
+                "valuesName": "milliliters"
+            },{
+                "valuesID": "2",
+                "valuesName": "micrograms"
+            },{
+                "valuesID": "2",
+                "valuesName": "mpoule"
+            }
+        ]
+    }
+    ]
+}]

@@ -1,0 +1,64 @@
+[{
+	"screenName": "Event Information",
+	"isMulti": "Yes",
+	"fields": [{
+			"fieldName": "Description as reported",
+			"validateField": "No",
+			"fieldPlaceHolderName": "Please enter description as reported",
+			"fieldType": "textView",
+			"isvisible": "Yes",
+			"dateBaseFieldName": "",
+			"case": "",
+			"values": []
+		},
+		{
+			"fieldName": "Dose description",
+			"validateField": "No",
+			"fieldPlaceHolderName": "Please enter dose description",
+			"fieldType": "textView",
+			"isvisible": "Yes",
+			"dateBaseFieldName": "",
+			"case": "",
+			"values": []
+		},
+		{
+			"fieldName": "Receipt Date",
+			"validateField": "Yes",
+			"fieldPlaceHolderName": "MMM-DD-YYYY",
+			"fieldType": "datePicker",
+			"isvisible": "Yes",
+			"dateBaseFieldName": "Receipt Date",
+			"case": "todayDate",
+			"values": []
+		},
+		{
+			"fieldName": "Onset Date/Time",
+			"validateField": "Yes",
+			"fieldPlaceHolderName": "MMM-DD-YYYY",
+			"fieldType": "datePicker",
+			"isvisible": "Yes",
+			"dateBaseFieldName": "Onset Date/Time",
+			"case": "",
+			"values": []
+		},
+		{
+			"fieldName": "Stop Date/Time",
+			"validateField": "Yes",
+			"fieldPlaceHolderName": "MMM-DD-YYYY",
+			"fieldType": "datePicker",
+			"isvisible": "Yes",
+			"dateBaseFieldName": "Stop Date/Time ",
+			"case": "",
+			"values": []
+		}, {
+			"fieldName": "Event Details",
+			"validateField": "No",
+			"fieldPlaceHolderName": "Event Details",
+			"fieldType": "textView",
+			"isvisible": "Yes",
+			"dateBaseFieldName": "",
+			"case": "",
+			"values": []
+		}
+	]
+}]

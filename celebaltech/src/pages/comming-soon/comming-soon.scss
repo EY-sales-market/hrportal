@@ -1,0 +1,12 @@
+page-comming-soon {
+  .comingStyle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    font-size: 36px;
+    @extend .medium;
+    @extend .darkmain;
+  }
+}

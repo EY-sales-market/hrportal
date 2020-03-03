@@ -1,0 +1,30 @@
+<ion-content padding-horizontal class="loginpage" no-bounce>
+
+    <div ion-fixed class="loginbg">
+        <div text-center class="logotitle"></div>
+        <div text-uppercase class="logintitle">login</div> 
+    </div>
+    <form [formGroup]="signinForm">
+        <ion-list no-margin no-lines class="commoninputs">
+            <ion-item no-padding>
+                <ion-icon item-start class="fa fa-mobile"></ion-icon>
+                <ion-input type="tel" placeholder="Mobile" formControlName="email"></ion-input>
+            </ion-item>
+            <!-- <ion-item no-padding>
+                <ion-icon item-start class="zmdi zmdi-lock-open"></ion-icon>
+                <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+            </ion-item> -->
+            <ion-item no-padding class="checkboxlogin">
+                <ion-checkbox color="darkmain" checked></ion-checkbox>
+                <ion-label>Keep me logged in</ion-label>
+            </ion-item>
+        </ion-list>
+
+        <div class="loginbutton">
+            <button ion-button block round class="primarybtn" color="primarymain" (click)="submitForm()">Login</button>
+        </div>
+    </form>
+    <!--
+    <div text-center class="forgotlink"><span tappable (click)="forgotpassword()">Forgot Password?</span></div>
+    <div text-center no-margin class="requestlink"><span tappable (click)="requestcredentials()">Request Credentials</span></div> -->
+</ion-content>

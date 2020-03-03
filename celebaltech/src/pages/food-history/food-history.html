@@ -1,0 +1,42 @@
+<!--
+  Generated template for the FoodHistoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <ion-title>History</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+
+<div *ngIf="!loadData" class="loader"></div>
+<div *ngIf="loadData">
+    <ion-list *ngFor="let food of food_data">
+        <ion-list-header>
+            <h2>{{food.date}}</h2>
+            <h2 *ngIf="x" item-end>Employee ID:{{food.employee_id}}</h2>
+        </ion-list-header>
+        <ion-list>
+            <ion-item>
+
+                <h2>lunch</h2>
+
+                <button ion-button clear item-end>{{food.lunch_status}}</button>
+
+            </ion-item>
+            <ion-item>
+
+                <h2>Dinner</h2>
+
+                <button ion-button clear item-end>{{food.dinner}}</button>
+            </ion-item>
+        </ion-list>
+
+    </ion-list>
+
+</div>
+
+</ion-content>

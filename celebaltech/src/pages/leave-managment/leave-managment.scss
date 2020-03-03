@@ -1,0 +1,41 @@
+page-leave-managment {
+  .container {
+    font-size: 16px;
+    line-height: 16px;
+    height: 32px;
+    overflow: hidden;
+  }
+
+  .show {
+    overflow: visible;
+    height: auto;
+  }
+  .btnShow{
+    background: white;
+    color:rgb(44, 132, 247);
+  }
+  .headLeave{
+    background-color: #c95e2e;
+  color: white;
+  // top: 60px;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 1;
+  }
+  .headLeave p{
+    color:black;
+    font-size: larger;
+    padding: 5px;
+  }
+  .LeaveBtn {
+    text-align: center;
+    padding-top: 0px;
+  }
+  .LeaveBtn button{
+    margin-bottom: 2px;
+    // margin-top: 2px;
+    text-align: center;
+    width: 100%;
+  }
+
+}

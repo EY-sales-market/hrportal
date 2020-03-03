@@ -1,0 +1,7 @@
+{
+  "name": "DeMystifier",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

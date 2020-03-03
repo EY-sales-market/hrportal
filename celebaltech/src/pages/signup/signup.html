@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title></ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div text-uppercase class="logintitle">Request Credentials</div>
+    <form [formGroup]="signinForm">
+        <ion-list no-margin no-lines class="commoninputs">
+            <ion-item no-padding>
+                <ion-icon item-start class="zmdi zmdi-account-o"></ion-icon>
+                <ion-input type="text" formControlName="name" placeholder="Full name"></ion-input>
+            </ion-item>
+            <ion-item no-padding>
+                <ion-icon item-start class="fa fa-envelope-o"></ion-icon>
+                <ion-input type="text" formControlName="email" placeholder="Email Address"></ion-input>
+            </ion-item>
+            <ion-item no-padding>
+                <ion-icon item-start class="zmdi zmdi-smartphone-iphone"></ion-icon>
+                <ion-input type="tel" formControlName="mobile" placeholder="Phone number"></ion-input>
+            </ion-item>
+            <ion-item no-padding class="customselect">
+                <ion-icon item-start class="fa fa-transgender-alt"></ion-icon>
+                <ion-select formControlName="gender" interface="action-sheet" placeholder="gender">
+                    <ion-option>Male</ion-option>
+                    <ion-option>Female</ion-option>
+                    <ion-option>Other</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item no-padding class="customselect">
+                <ion-icon item-start class="zmdi zmdi-accounts-outline"></ion-icon>
+                <ion-select formControlName="whatdoyouidentify" interface="action-sheet" placeholder="Who do you identify as?">
+                    <ion-option>Apple</ion-option>
+                    <ion-option>Banana</ion-option>
+                    <ion-option>cat</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item no-padding class="commontextarea">
+                <ion-textarea formControlName="purposeofuse" placeholder="Purpose of usage of the intake applicaion"></ion-textarea>
+            </ion-item>
+        </ion-list>
+
+        <div class="loginbutton">
+            <button ion-button block round class="primarybtn" color="primarymain" (click)="submitForm()">Request Credentials</button>
+        </div>
+    </form>
+</ion-content>

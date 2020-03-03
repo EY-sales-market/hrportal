@@ -1,0 +1,460 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+//  Mixin
+@mixin border-radius($radius) {
+  -webkit-border-radius: get-vw($radius) !important;
+  -moz-border-radius: get-vw($radius) !important;
+  -ms-border-radius: get-vw($radius) !important;
+  border-radius: get-vw($radius) !important;
+}
+
+//fonts
+$font_0: Poppins;
+
+//urls
+$url_0: url(../assets/fonts/Poppins-Bold.woff2);
+$url_1: url(../assets/fonts/Poppins-Bold.woff);
+$url_2: url(../assets/fonts/Poppins-Light.woff2);
+$url_3: url(../assets/fonts/Poppins-Light.woff);
+$url_4: url(../assets/fonts/Poppins-Medium.woff2);
+$url_5: url(../assets/fonts/Poppins-Medium.woff);
+$url_6: url(../assets/fonts/Poppins-Regular.woff2);
+$url_7: url(../assets/fonts/Poppins-Regular.woff);
+$url_8: url(../assets/fonts/Poppins-SemiBold.woff2);
+$url_9: url(../assets/fonts/Poppins-SemiBold.woff);
+
+@font-face {
+  font-family: $font_0;
+  src: $url_0 format('woff2'), $url_1 format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font_0;
+  src: $url_2 format('woff2'), $url_3 format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font_0;
+  src: $url_4 format('woff2'), $url_5 format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font_0;
+  src: $url_6 format('woff2'), $url_7 format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font_0;
+  src: $url_8 format('woff2'), $url_9 format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+.light {
+  font-family: $font_0 !important;
+  font-weight: 300;
+}
+
+.regular {
+  font-family: $font_0 !important;
+  font-weight: normal;
+}
+
+.medium {
+  font-family: $font_0 !important;
+  font-weight: 500;
+}
+
+.semibold {
+  font-family: $font_0 !important;
+  font-weight: 600;
+}
+
+.bold {
+  font-family: $font_0 !important;
+  font-weight: bold;
+}
+
+// Font Sizes
+
+.font30 {
+  font-size: 30px !important;
+}
+
+.font28 {
+  font-size: 28px !important;
+}
+
+.font26 {
+  font-size: 26px !important;
+}
+
+.font25 {
+  font-size: 25px !important;
+}
+
+.font24 {
+  font-size: 24px !important;
+}
+
+.font23 {
+  font-size: 23px !important;
+}
+
+.font22 {
+  font-size: 22px !important;
+}
+
+.font21 {
+  font-size: 21px !important;
+}
+
+.font20 {
+  font-size: 20px !important;
+}
+
+.font19 {
+  font-size: 19px !important;
+}
+
+.font18 {
+  font-size: 18px !important;
+}
+
+.font17 {
+  font-size: 17px !important;
+}
+
+.font16 {
+  font-size: 16px !important;
+}
+
+.font15 {
+  font-size: 15px !important;
+}
+
+.font14 {
+  font-size: 14px !important;
+}
+
+.font13 {
+  font-size: 13px !important;
+}
+
+.font12 {
+  font-size: 12px !important;
+}
+
+// Colors
+
+.white {
+  color: #ffffff !important;
+}
+
+.primarymain {
+  color: #4B66EB !important;
+}
+
+.secondarymain {
+  color: #81A0F6 !important;
+}
+
+.darkmain {
+  color: #131313 !important;
+}
+
+.darkgray {
+  color: #696969 !important;
+}
+
+.lightgray {
+  color: #969696 !important;
+}
+
+.lightwhite {
+  color: #E5E5E5 !important;
+}
+
+//   Common Classes
+
+ion-app {
+  @extend .medium;
+}
+
+.vhcenter {
+  display: block;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+}
+
+.vcenter {
+  display: block;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  -moz-align-items: center;
+  align-items: center;
+}
+
+.iconBgproperty:before {
+  background-size: 100% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: transparent;
+}
+
+.iconBgproperty2 {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.iconBgproperty3 {
+  background-size: contain;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+
+.imgBgproperty {
+  background-size: cover !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+}
+
+.imgBgproperty2 {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+ion-header {
+  .back-button {
+    color: #FFF !important;
+
+    ion-icon {
+      @extend .font24;
+    }
+  }
+}
+
+ion-navbar {
+  .toolbar-background {
+    background: linear-gradient(45deg, #4B66EB 0%, #5975EE 52%, #81A0F6 100%);
+    border: 0px solid transparent !important;
+  }
+
+  .toolbar-content {
+    .title {
+      .toolbar-title {
+        @extend .semibold;
+        @extend .white;
+      }
+    }
+  }
+}
+
+.commoninputs {
+  .item {
+    border: 1px solid #E5E5E5 !important;
+    border-radius: 50px;
+    margin-bottom: 16px;
+    @extend .darkgray;
+    @extend .font16;
+
+    ion-icon {
+      margin: 8px;
+      @extend .font20;
+      min-height: auto;
+    }
+
+    .item-inner {
+      padding-right: 0px !important;
+
+      .input {
+        .text-input {
+          margin: 8px 8px 8px 0;
+        }
+      }
+    }
+  }
+}
+
+.commonlineinputs {
+  .item {
+    border-bottom: 1px solid #E5E5E5 !important;
+    margin-bottom: 16px;
+    @extend .darkmain;
+    @extend .font16;
+
+    .item-inner {
+      padding-right: 0px !important;
+
+      .label{
+        margin: 0px 0px 6px;
+        @extend .font14;
+        @extend .darkgray;
+        @extend .medium;
+      } 
+
+      .datetime{
+        padding: 8px 8px 8px 0px;
+      }
+
+      .input {
+        .text-input {
+          margin: 8px 8px 8px 0;
+        }
+      }
+    }
+  }
+
+  .commontextarea {
+    .input {
+      .text-input {
+        height: 60px;
+        width: calc(100% - 16px);
+        margin: 8px !important;
+      }
+    }
+  }
+
+  .customselect {
+    .select {
+      padding: 8px 8px 8px 0px;
+      width: 100%;
+      min-width: 100%;
+
+      .select-icon {
+        .select-icon-inner {
+          left: 0px;
+          margin-top: 0px;
+          border: 0px;
+          font: normal normal normal 14px/1 'Material-Design-Iconic-Font';
+          font-size: 22px;
+          top: 0px;
+          color: #969696;
+
+          &::before {
+            content: '\f2f9'
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.custominput_select{
+  .label{
+    margin: 0px 0px 6px;
+    @extend .font14;
+    @extend .darkgray;
+  } 
+  .grid{
+    .row{
+      .col{
+        &:first-child{
+          padding-right: 4px !important;
+        }
+        &:last-child{
+          padding-left: 4px !important;
+        }
+      }
+    }
+  }
+}
+
+.primarybtn {
+  @extend .font18;
+  @extend .medium;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, .08);
+}
+
+// sidemenu
+
+.sidemenu_info {
+  padding: 16px;
+  @extend .white;
+
+  &_userimage {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    @extend .imgBgproperty2;
+  }
+
+  &_username {
+    @extend .font18;
+    @extend .medium;
+    margin: 20px 0 8px;
+  }
+
+  &_useremail {
+    @extend .font14;
+    @extend .regular;
+  }
+}
+
+.menubuttons {
+  @extend .darkmain;
+
+  ion-icon {
+    @extend .font24;
+    margin: 8px 16px 8px 0 !important;
+    min-height: initial;
+  }
+
+  .item-inner {
+    background-image: none !important;
+    padding: 0 !important;
+
+    .label {
+      margin: 8px 0 8px 0px !important;
+    }
+  }
+}
+
+.toggle-ios.toggle-checked {
+
+.toggle-icon {
+    background-color: #cd4c13 !important;
+}
+}

@@ -1,0 +1,120 @@
+<!--
+  Generated template for the ApproveTimesheetPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>approve-timesheet</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+  <ion-content >
+      <div *ngIf="!loadData" class="loader">
+
+        </div>
+        <div *ngIf="loadData">
+      <!--<ion-item     no-padding class="header">-->
+          <ion-grid class="header">
+              <ion-row >
+                  <ion-col col-2 ><ion-icon class="icon" name="search"></ion-icon></ion-col>
+                  <ion-col col-7><ion-input type="tel" placeholder="search" [(ngModel)]="query" ></ion-input></ion-col>
+                  <ion-col col-3>
+                    <ion-item>
+                        <ion-label ><ion-icon class="icon1"  name="funnel"></ion-icon></ion-label>
+                        <ion-select   [(ngModel)]="drop" interface="popover">
+                            <ion-option  value="0">All</ion-option>
+                            <ion-option  value="1">Accepted</ion-option>
+                            <ion-option  value="2">Rejected</ion-option>
+                        </ion-select>
+                    </ion-item>
+                </ion-col>
+
+
+              </ion-row>
+          </ion-grid>
+      <!-- </ion-item> click)="presentAlertPrompt()
+        //     Billable: null
+// approved_by_emp_id: "prarbdh.ranjan@celebaltech.com"
+// bill_date: "Jun  1 2019 "
+// billed_hours: 160
+// emp_id: "ayushkumar2441999@gmail.com"
+// isapproved: false
+// last_updated: "2019-08-09T00:00:00.000Z"
+// projectid: 72
+// projectname: "Vedanta"
+// task_description: "Dispatch_Scheduler (Optimization,Constraint Based Programming), Databricks (Python)"
+// task_type: "Development"
+// timesheetid: 1"-->
+         <ion-grid>
+            <ion-row class="head" >
+                <ion-col sort [sortKey]="'projectname'" [data]="data" col-6>Project Name</ion-col>
+                <ion-col sort [sortKey]="'billed_hours'" [data]="data" col-2>Bill Hour</ion-col>
+                <ion-col (click)="sortDate()" col-2>Bill Date</ion-col>
+                <ion-col sort [sortKey]="'isapproved'" [data]="data" col-2>Aprrove</ion-col>
+            </ion-row>
+            <div *ngFor="let data of data| search:'timesheetid,projectname':query ; let i=index" id="#prj">
+            <ion-row  *ngIf="(data.isapproved&&drop==1)||(!data.isapproved&&drop==2)||(drop==0)">
+                <ion-col col-6 ><span><a (click)="detail(i)">{{data.projectname}}</a></span><br>{{data.emp_id.substring(0,data.emp_id.lastIndexOf("@"))}}</ion-col>
+                <ion-col col-2 >{{data.billed_hours}}</ion-col>
+                <ion-col col-2 >{{data.bill_date}}</ion-col>
+
+                <ion-col col-2>
+                    <ion-toggle class="toggle" [(ngModel)]="data.isapproved" (ionChange)="Prompt(data,i)"></ion-toggle>
+                  </ion-col>
+
+                <!-- <hr>table>
+  <thead>
+    <th sortColumn [sortKey]="'id'" [data]="data">ID</th>
+    <th sortColumn [sortKey]="'name'" [data]="data">Name</th>
+    <th sortColumn [sortKey]="'mobile'" [data]="data">Mobile</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of data">
+    <td>{{item.id}}</td>
+    <td>{{item.name}}</td>
+    <td>{{item.mobile}}</td>
+  </tr>
+  </tbody>
+</table> -->
+            </ion-row>
+            <div *ngIf="detailData[i]" padding>
+                <ion-row>
+                    <ion-col col-6 class="detailkey">Billable</ion-col>
+                    <ion-col col-6>{{data.Billable}}</ion-col>
+                </ion-row>
+            <ion-row>
+                <ion-col col-6 class="detailkey">Employee Mail-ID</ion-col>
+                <ion-col col-6>{{data.emp_id}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-6 class="detailkey">Bill Date</ion-col>
+                <ion-col col-6>{{data.bill_date}}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6 class="detailkey">Task Type</ion-col>
+              <ion-col col-6>{{data.task_type}}</ion-col>
+          </ion-row>
+            <ion-row>
+                <ion-col col-6 class="detailkey">Billed Hours</ion-col>
+                <ion-col col-6>{{data.billed_hours}}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6 class="detailkey">Approved By</ion-col>
+              <ion-col col-6>{{data.approved_by_emp_id}}</ion-col>
+          </ion-row>
+            <ion-row>
+                <ion-col col-6 class="detailkey">Task Description</ion-col>
+                <ion-col col-6>{{data.task_description}}</ion-col>
+            </ion-row>
+            <hr>
+          </div>
+          </div>
+
+        </ion-grid>
+      </div>
+  </ion-content>
+

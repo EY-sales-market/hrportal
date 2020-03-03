@@ -1,0 +1,26 @@
+page-full-data-entry {
+  .fulldata_btn {
+    margin: 0px 0px 24px;
+    @extend .font16;
+    @extend .medium;
+    @extend .darkmain;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #969696;
+    background-color: rgba(229, 229, 229, 0.1);
+
+    &:last-child {
+      margin: 0px;
+    }
+    .button-inner{
+        justify-content: space-between;
+    }
+  }
+
+  .fulldata_btn.activated{
+    background: #4B66EB;
+    color: #FFFFFF !important;
+    border: 1px solid #4B66EB;
+  }
+}

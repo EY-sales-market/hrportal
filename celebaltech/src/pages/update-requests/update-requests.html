@@ -1,0 +1,124 @@
+<!--
+  Generated template for the UpdateRequestsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>update-requests</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+    <ion-content >
+        <ion-card *ngFor="let value of values;let i=index">
+          <ion-card-content>
+            <ion-card-title>
+                {{value.employeeID}}
+            </ion-card-title>
+            <!-- <ion-card-title>
+              <div *ngIf="value.status=='WFM';else other_content">Remote work</div>
+              <ng-template #other_content>Leave</ng-template>
+            </ion-card-title>DOU: "2019-10-10"
+DTU: "2019-10-10"
+: "shakti.singhrajput@celebaltech.com"
+entryTime: "11:00"
+exitTime: "19:00"
+isapproved: "N"
+message: "ewqwr"
+sNO: 1 -->
+
+            <p class="container" [class.show]="show[i]">{{value.message}} </p>
+            <p class="btnShow" (click)="show[i]= !show[i]">{{ show[i] ? 'Read less': 'Read More....' }}</p>
+
+    <p>{{value.DTU}}</p>
+          </ion-card-content>
+          <ion-grid>
+            <ion-row class="headLeave">
+              <ion-col col-6>
+                <p>entry:{{value.entryTime}}</p>
+              </ion-col>
+              <ion-col col-6>
+                <p>exit:{{value.exitTime}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <ion-grid>
+            <ion-row>
+              <ion-col class="LeaveBtn" col-6>
+                  <button ion-button color="primarymain" outline icon-only (click)="acceptLeave(i)">
+                  Accept
+                </button></ion-col>
+              <ion-col class="LeaveBtn" col-6>
+                  <button ion-button color="primarymain" outline icon-only (click)="rejectLeave(i)">
+                  Reject
+                </button></ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </ion-content>
+      <!-- <ion-content *ngIf="EmployeeType =='admin'">
+
+
+          <ion-card >
+            <ion-card-content>
+              <ion-card-title>
+
+              </ion-card-title>
+              <ion-card-title>
+                <div *ngIf="value.status=='WFM';else other_content">Remote work</div>
+                <ng-template #other_content>Leave</ng-template>
+              </ion-card-title>
+              <p class="container" [class.show]="show[i]">{{value.reason}} </p>
+              <p class="btnShow" (click)="show[i]= !show[i]">{{ show[i] ? 'Read less': 'Read More....' }}</p>
+
+
+            </ion-card-content>
+            <!-- DOLA: "2019-10-23"
+            DOLF: "2019-10-23"
+            DOLT: "2019-10-25"
+            EmployeeID: "prarbdh.ranjan@celebaltech.com"
+            isApproved: "N"
+            reason: "pls approve my leave i have to go for family function."
+            sNO: 1
+            status: "WFM"
+          isValid;else other_content">
+            content here ...
+        </div>
+
+        <ng-template #other_content>other content here...</ng-template> -->
+            <!-- <ion-item> -->
+
+            <!-- <ion-grid>
+              <ion-row class="headLeave"> -->
+
+                <!-- <ion-col col-2><ion-icon name="calendar"></ion-icon></ion-col> -->
+                <!-- <ion-col col-6>
+                  <p>from:{{value.DOLF}}</p>
+                </ion-col>
+                <ion-col col-6>
+                  <p>to:{{value.DOLT}}</p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+            <ion-grid>
+
+              <ion-row> -->
+
+                <!-- <ion-col col-2><ion-icon name="calendar"></ion-icon></ion-col> -->
+                <!-- <ion-col class="LeaveBtn" col-6>
+                  <button ion-button color="primarymain" outline icon-only (click)="acceptLeave(i)">
+                    Accept
+                  </button></ion-col>
+                <ion-col class="LeaveBtn" col-6>
+                  <button ion-button color="primarymain" outline icon-only (click)="rejectLeave(i)">
+                    Reject
+                  </button></ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card>
+
+
+        </ion-content> -->

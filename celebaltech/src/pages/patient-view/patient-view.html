@@ -1,0 +1,166 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Patient</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <form [formGroup]="generalInfo" *ngIf="formFields!=''">
+        <ion-list no-margin no-lines class="commonlineinputs" *ngFor="let formfield of formFields ">
+            <input type='hidden' *ngIf="formfield.fieldType == 'counrtySelection'" formControlName="{{formfield.fieldName}}"  />
+            <ion-item no-padding class="customselect" *ngIf="formfield.isvisible=='Yes'">
+                <ion-label stacked>{{formfield.fieldName}}</ion-label>
+     <ion-input type="text"  placeholder="{{formfield.fieldPlaceHolderName}}" *ngIf="formfield.fieldType == 'textField'"  formControlName="{{formfield.fieldName}}"></ion-input>
+
+     <ion-input type="number" placeholder="{{formfield.fieldPlaceHolderName}}"  *ngIf="formfield.fieldType == 'numericTextField'"  formControlName="{{formfield.fieldName}}"></ion-input>
+                 <ion-select *ngIf="formfield.fieldType == 'DropDown'" formControlName="{{formfield.fieldName}}" interface="action-sheet" placeholder="{{formfield.fieldPlaceHolderName}}">
+                    <ion-option *ngFor="let name  of formfield.values">{{name.valuesName}}</ion-option>
+                </ion-select>
+                <ion-label *ngIf="formfield.fieldType == 'counrtySelection'" no-padding class="customselect" (click)="openCountry( formfield.fieldName )">{{Country}}
+
+                </ion-label>
+ 
+
+                <ion-datetime  placeholder="{{formfield.fieldPlaceHolderName}}" *ngIf=" formfield.fieldType=='datePicker' && checkdate(formfield)"  formControlName="{{formfield.fieldName}}"></ion-datetime>
+                <ion-textarea placeholder="{{formfield.fieldPlaceHolderName}}" *ngIf="formfield.fieldType=='textView'" formControlName="{{formfield.fieldName}}"></ion-textarea>
+         
+            </ion-item>
+ 
+        </ion-list>
+
+        <div class="loginbutton">
+            <button ion-button block round class="primarybtn" color="primarymain" (click)="submitForm()">Save</button>
+        </div>
+
+    </form>
+
+    <!-- <form [formGroup]="patientviewhtml">
+       <ion-list no-margin no-lines class="commonlineinputs">
+
+             <ion-item no-padding>
+                <ion-label stacked>Patient ID</ion-label>
+                <ion-input type="text" formControlName="patient_id"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>Patient Name</ion-label>
+                <ion-input type="text" formControlName="patient_name"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>Date Of Birth</ion-label>
+                <ion-datetime formControlName="dob"></ion-datetime>
+            </ion-item>
+
+            <ion-item no-padding class="customselect">
+                <ion-label stacked>Gender</ion-label>
+                <ion-select interface="action-sheet" placeholder="Gender" formControlName="gender">
+                    <ion-option *ngFor="let name  of genderData">{{name}}</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item no-padding class="customselect">
+                <ion-label stacked>Ethnicity</ion-label>
+                <ion-select placeholder="Ethnicity" interface="action-sheet" formControlName="entinicity">
+                    <ion-option *ngFor="let name  of EntinicityData">{{name}}</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <div class="custominput_select">
+                <ion-label stacked>Height</ion-label>
+                <ion-grid no-padding>
+                    <ion-row>
+                        <ion-col col-7>
+                            <ion-item no-padding>
+                                <ion-input placeholder="Height" formControlName="height" type="number"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-5>
+                            <ion-item no-padding class="customselect">
+                                <ion-select placeholder="Units" interface="action-sheet" formControlName="unit_of_height">
+                                    <ion-option *ngFor="let name  of unitofHeight">{{name}}</ion-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+
+            <ion-item no-padding class="customselect">
+                <ion-label stacked>Pregnant</ion-label>
+                <ion-select placeholder="Pregnant" interface="action-sheet" formControlName="pregnant">
+                    <ion-option>Yes</ion-option>
+                    <ion-option>No</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>Occupation</ion-label>
+                <ion-input type="text" formControlName="occupation"></ion-input>
+            </ion-item>
+
+            <div class="custominput_select">
+                <ion-label stacked>Weight</ion-label>
+                <ion-grid no-padding>
+                    <ion-row>
+                        <ion-col col-7>
+                            <ion-item no-padding>
+                                <ion-input placeholder="Weight" formControlName="weight" type="number"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-5>
+                            <ion-item no-padding class="customselect">
+                                <ion-select placeholder="Units" interface="action-sheet" formControlName="unit_of_weight">
+                                    <ion-option *ngFor="let name  of unitOfWeight">{{name}}</ion-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+
+            <ion-item no-padding>
+                <ion-label stacked>LMP Date</ion-label>
+                <ion-datetime formControlName="lmp_date"></ion-datetime>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>Address</ion-label>
+                <ion-input type="text" formControlName="address"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding class="customselect" (click)="openCountry()">
+                <ion-label stacked>Country</ion-label>
+                <ion-label>{{Country}}</ion-label>
+                <input type='hidden' formControlName="country">
+               
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>State</ion-label>
+                <ion-input type="text" formControlName="state"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>City</ion-label>
+                <ion-input type="text" formControlName="city"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>Postal Code</ion-label>
+                <ion-input type="text" formControlName="postal_code"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>Phone</ion-label>
+                <ion-input type="text" formControlName="phone"></ion-input>
+            </ion-item>
+
+        </ion-list>
+
+        <div class="loginbutton">
+            <button ion-button block round class="primarybtn" (click)="submitForm()" color="primarymain">Save</button>
+        </div>
+
+    </form> -->
+</ion-content>

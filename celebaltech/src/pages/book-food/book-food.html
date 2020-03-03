@@ -1,0 +1,39 @@
+<!--
+  Generated template for the BookFoodPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Food</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+<div *ngIf="!loadData" class="loader">
+
+</div>
+
+<div *ngIf="loadData">
+  <ion-list>
+    <ion-item>
+      <ion-toggle [(ngModel)]="orderLunch" disabled="{{hideLunch}}" ></ion-toggle>
+      <ion-label>
+       Lunch
+      </ion-label>
+      <ion-icon name='pizza' item-start></ion-icon>
+    </ion-item>
+    <ion-item>
+        <ion-toggle  [(ngModel)]="orderDinner" disabled="{{hideDinner}}" ></ion-toggle>
+        <ion-label>
+         Dinner
+        </ion-label >
+        <ion-icon name='pizza' item-start></ion-icon>
+      </ion-item>
+  </ion-list>
+  <div class="loginbutton">
+      <button ion-button block round class="primarybtn" [disabled]="submit" color="primarymain" (click)="submitForm()">Submit</button>
+  </div>
+  </div>
+</ion-content>

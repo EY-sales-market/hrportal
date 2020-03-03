@@ -1,0 +1,55 @@
+page-dosage-regimen {
+    .radio_group {
+        .label {
+            margin: 0px 0px 6px;
+            @extend .font14;
+            @extend .darkgray;
+        }
+    }
+    .grid {
+        .row {
+            .col {
+                &:first-child {
+                    padding-right: 4px !important;
+                }
+                &:last-child {
+                    padding-left: 4px !important;
+                }
+            }
+        }
+    }
+    .radioitems {
+        min-height: 50px;
+        .item-inner {
+            .label {
+                @extend .regular;
+            }
+            .radio {
+                .radio-icon {
+                    border: 1.5px solid #4d68eb;
+                    border-radius: 50%;
+                    width: 20px;
+                    height: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .radio-icon.radio-checked {
+                    .radio-inner {
+                        position: relative;
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        border: 0px !important;
+                        left: 0px;
+                        top: 0px;
+                        background-color: #4d68eb;
+                    }
+                }
+            }
+        }
+    }
+    .loginbutton {
+        padding: 16px 16px 16px;
+    }
+}

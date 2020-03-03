@@ -1,0 +1,177 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Product</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+ <form [formGroup]="generalInfo" *ngIf="formFields!=''">
+        <ion-list no-margin no-lines class="commonlineinputs" *ngFor="let formfield of formFields ">
+            <input type='hidden' *ngIf="formfield.fieldType == 'counrtySelection'" formControlName="{{formfield.fieldName}}"  />
+            <ion-item no-padding class="customselect" *ngIf="formfield.isvisible=='Yes'">
+                <ion-label stacked>{{formfield.fieldName}}</ion-label>
+     <ion-input type="text"  placeholder="{{formfield.fieldPlaceHolderName}}" *ngIf="formfield.fieldType == 'textField'"  formControlName="{{formfield.fieldName}}"></ion-input>
+
+     <ion-input type="number" placeholder="{{formfield.fieldPlaceHolderName}}"  *ngIf="formfield.fieldType == 'numericTextField'"  formControlName="{{formfield.fieldName}}"></ion-input>
+                 <ion-select *ngIf="formfield.fieldType == 'DropDown'" formControlName="{{formfield.fieldName}}" interface="action-sheet" placeholder="{{formfield.fieldPlaceHolderName}}">
+                    <ion-option *ngFor="let name  of formfield.values">{{name.valuesName}}</ion-option>
+                </ion-select>
+                <ion-label *ngIf="formfield.fieldType == 'counrtySelection'" no-padding class="customselect" (click)="openCountry( formfield.fieldName )">{{Country}}
+
+                </ion-label>
+ 
+
+                <ion-datetime  placeholder="{{formfield.fieldPlaceHolderName}}" *ngIf=" formfield.fieldType=='datePicker' && checkdate(formfield)"  formControlName="{{formfield.fieldName}}"></ion-datetime>
+                <ion-textarea placeholder="{{formfield.fieldPlaceHolderName}}" *ngIf="formfield.fieldType=='textView'" formControlName="{{formfield.fieldName}}"></ion-textarea>
+         
+            </ion-item>
+ 
+        </ion-list>
+
+        <div class="loginbutton">
+            <button ion-button block round class="primarybtn" color="primarymain" (click)="submitForm()">Save</button>
+        </div>
+
+    </form>
+
+    <!-- <form [formGroup]="signinForm">
+        <ion-list no-margin no-lines class="commonlineinputs radio_group" radio-group formControlName="product_category">
+            <ion-label class="radiolabel">Product Category</ion-label>
+            <ion-grid no-padding>
+                <ion-row padding-horizontal>
+                    <ion-col col-12>
+                        <ion-item no-padding no-lines class="radioitems">
+                            <ion-radio checked value="drug"></ion-radio>
+                            <ion-label>Drug</ion-label>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col col-12>
+                        <ion-item no-padding no-lines class="radioitems">
+                            <ion-radio value="device"></ion-radio>
+                            <ion-label>Device</ion-label>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col col-12>
+                        <ion-item no-padding no-lines class="radioitems">
+                            <ion-radio value="vaccine"></ion-radio>
+                            <ion-label>Vaccine</ion-label>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-list>
+
+        <ion-list no-margin no-lines class="commonlineinputs">
+            <ion-item no-padding>
+                <ion-label stacked>Product Name</ion-label>
+                <ion-input type="text" formControlName="product_name"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>Formulation</ion-label>
+                <ion-input type="text" formControlName="formulations"></ion-input>
+            </ion-item>
+
+            <div class="custominput_select">
+                <ion-label stacked>Concentration</ion-label>
+                <ion-grid no-padding>
+                    <ion-row>
+                        <ion-col col-7>
+                            <ion-item no-padding>
+                                <ion-input placeholder="Concentration" type="text" formControlName="concentration"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-5>
+                            <ion-item no-padding class="customselect">
+                                <ion-select placeholder="Units" interface="action-sheet" formControlName="concentration_unit">
+
+                                    <ion-option *ngFor="let name  of Concentration">{{name}}</ion-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+
+            <ion-list no-margin no-lines class="commonlineinputs radio_group" radio-group formControlName="product_type">
+                <ion-label class="radiolabel">Product Type</ion-label>
+                <ion-grid no-padding>
+                    <ion-row padding-horizontal>
+                        <ion-col col-12>
+                            <ion-item no-padding no-lines class="radioitems">
+                                <ion-radio checked value="suspect"></ion-radio>
+                                <ion-label>Suspect</ion-label>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-12>
+                            <ion-item no-padding no-lines class="radioitems">
+                                <ion-radio value="concomitant"></ion-radio>
+                                <ion-label>Concomitant</ion-label>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-12>
+                            <ion-item no-padding no-lines class="radioitems">
+                                <ion-radio value="treatment"></ion-radio>
+                                <ion-label>Treatment</ion-label>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-list>
+
+            <ion-item no-padding>
+                <ion-label stacked>Generic Name</ion-label>
+                <ion-input type="text" formControlName="generic_name"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>Interaction</ion-label>
+                <ion-input type="text" formControlName="interaction"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>Contra-indicated</ion-label>
+                <ion-input type="text" formControlName="contra_incicated"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>WHO Drug code</ion-label>
+                <ion-input type="text" formControlName="who_drug_code"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>Company Drug Code</ion-label>
+                <ion-input type="text" formControlName="compnay_drug_code"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>Manufacturer</ion-label>
+                <ion-input type="text" formControlName="manufacture"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>Obtain Drug Country</ion-label>
+                <ion-input type="text" formControlName="obtain_drug_country"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding class="customselect" (click)="openCountry()">
+                <ion-label stacked>Drug Authorization Country</ion-label>
+                
+
+                <ion-label>{{Country}}</ion-label>
+                <input type='hidden' formControlName="drug_authorization_country">
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>WHO Medicinal Product ID</ion-label>
+                <ion-input type="text" formControlName="who_medical_product"></ion-input>
+            </ion-item>
+
+        </ion-list>
+
+        <div class="loginbutton">
+            <button ion-button block round class="primarybtn" color="primarymain" (click)="submitForm()">Save</button>
+        </div>
+    </form> -->
+</ion-content>

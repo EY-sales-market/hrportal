@@ -1,0 +1,192 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Dosage Regimen</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only color="lighmain">
+        <ion-icon name="md-add"></ion-icon>
+      </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+ <form [formGroup]="generalInfo" *ngIf="formFields!=''">
+        <ion-list no-margin no-lines class="commonlineinputs" *ngFor="let formfield of formFields ">
+            <input type='hidden' *ngIf="formfield.fieldType == 'counrtySelection'" formControlName="{{formfield.fieldName}}"  />
+            <ion-item no-padding class="customselect" *ngIf="formfield.isvisible=='Yes'">
+                <ion-label stacked>{{formfield.fieldName}}</ion-label>
+     <ion-input type="text"  placeholder="{{formfield.fieldPlaceHolderName}}" *ngIf="formfield.fieldType == 'textField'"  formControlName="{{formfield.fieldName}}"></ion-input>
+
+     <ion-input type="number" placeholder="{{formfield.fieldPlaceHolderName}}"  *ngIf="formfield.fieldType == 'numericTextField'"  formControlName="{{formfield.fieldName}}"></ion-input>
+                 <ion-select *ngIf="formfield.fieldType == 'DropDown'" formControlName="{{formfield.fieldName}}" interface="action-sheet" placeholder="{{formfield.fieldPlaceHolderName}}">
+                    <ion-option *ngFor="let name  of formfield.values">{{name.valuesName}}</ion-option>
+                </ion-select>
+                <ion-label *ngIf="formfield.fieldType == 'counrtySelection'" no-padding class="customselect" (click)="openCountry( formfield.fieldName )">{{Country}}
+
+                </ion-label>
+ 
+
+                <ion-datetime  placeholder="{{formfield.fieldPlaceHolderName}}" *ngIf=" formfield.fieldType=='datePicker' && checkdate(formfield)"  formControlName="{{formfield.fieldName}}"></ion-datetime>
+                <ion-textarea placeholder="{{formfield.fieldPlaceHolderName}}" *ngIf="formfield.fieldType=='textView'" formControlName="{{formfield.fieldName}}"></ion-textarea>
+         
+            </ion-item>
+ 
+        </ion-list>
+
+        <div class="loginbutton">
+            <button ion-button block round class="primarybtn" color="primarymain" (click)="submitForm()">Save</button>
+        </div>
+
+    </form>
+
+    <!-- <form [formGroup]="signinForm">
+        <ion-list no-margin no-lines class="commonlineinputs">
+
+            <ion-item no-padding>
+                <ion-label stacked>Start Date & time</ion-label>
+                <ion-datetime formControlName="start_date"></ion-datetime>
+            </ion-item>
+
+            <div class="custominput_select">
+                <ion-label stacked>Dose</ion-label>
+                <ion-grid no-padding>
+                    <ion-row>
+                        <ion-col col-7>
+                            <ion-item no-padding>
+                                <ion-input type="text" formControlName="dose"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-5>
+                            <ion-item no-padding class="customselect">
+                                <ion-select placeholder="Units" interface="action-sheet" formControlName="dose_unit">
+                                    <ion-option *ngFor="let name  of dosesregimenUnit">{{name}}</ion-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+
+            <ion-item no-padding>
+                <ion-label stacked>Frequency</ion-label>
+                <ion-input type="text" formControlName="frequency"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding class="customselect">
+                <ion-label stacked>Patient Route of Administration</ion-label>
+                <ion-select placeholder="--Choose--" interface="action-sheet" formControlName="start_patient_route_of_administration">
+                    <ion-option *ngFor="let name  of identify">{{name}}</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>Stop Date & Time</ion-label>
+                <ion-datetime formControlName="stop_date"></ion-datetime>
+            </ion-item>
+
+            <div class="custominput_select">
+                <ion-label stacked>Daily Dosage</ion-label>
+                <ion-grid no-padding>
+                    <ion-row>
+                        <ion-col col-7>
+                            <ion-item no-padding>
+                                <ion-input type="text" formControlName="daily_dosage"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-5>
+                            <ion-item no-padding class="customselect">
+                                <ion-select placeholder="Units" interface="action-sheet" formControlName="daily_dosage_unit">
+                                    <ion-option *ngFor="let name  of dosesregimenUnit">{{name}}</ion-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+
+            <div class="custominput_select">
+                <ion-label stacked>Regimen Dosage</ion-label>
+                <ion-grid no-padding>
+                    <ion-row>
+                        <ion-col col-7>
+                            <ion-item no-padding>
+                                <ion-input type="text" formControlName="regimen_dosage"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-5>
+                            <ion-item no-padding class="customselect">
+                                <ion-select placeholder="Units" interface="action-sheet" formControlName="regimen_dosage_unit">
+                                    <ion-option *ngFor="let name  of dosesregimenUnit">{{name}}</ion-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+
+            <ion-item no-padding class="customselect">
+                <ion-label stacked>Parent Route of Administration</ion-label>
+                <ion-select placeholder="--Choose--" interface="action-sheet" formControlName="stop_patient_route_of_administration">
+                    <ion-option *ngFor="let name  of identify">{{name}}</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-list no-margin no-lines class="commonlineinputs radio_group" radio-group formControlName="event_type">
+                <ion-label class="radiolabel">Event type</ion-label>
+                <ion-grid no-padding>
+                    <ion-row>
+                        <ion-col col-4>
+                            <ion-item no-padding no-lines class="radioitems">
+                                <ion-radio checked value="ongoing"></ion-radio>
+                                <ion-label>Ongoing</ion-label>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-8>
+                            <ion-item text-wrap no-padding no-lines class="radioitems">
+                                <ion-radio value="outside"></ion-radio>
+                                <ion-label>Outside Therapeutic Range</ion-label>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-list>
+
+            <ion-item no-padding>
+                <ion-label stacked>Dose description</ion-label>
+                <ion-input type="text" formControlName="dose_description"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>Duration of regimen</ion-label>
+                <ion-input type="text" formControlName="duration_of_regimen"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>Accidental Exposure</ion-label>
+                <ion-input type="text" formControlName="accidental_exposure"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>Batch No./Lot No.</ion-label>
+                <ion-input type="text" formControlName="batch_no"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>Package Id</ion-label>
+                <ion-input type="text" formControlName="package_id"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>Expiration Date</ion-label>
+                <ion-datetime formControlName="expiration_date"></ion-datetime>
+            </ion-item>
+
+        </ion-list>
+
+        <div class="loginbutton">
+            <button ion-button block round class="primarybtn" color="primarymain" (click)="submitForm()">Save</button>
+        </div>
+
+    </form> -->
+</ion-content>

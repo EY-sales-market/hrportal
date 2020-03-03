@@ -1,0 +1,77 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Event Detail</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <!-- Event -->
+
+    <ion-list no-margin no-lines class="commonlineinputs">
+        <ion-item no-padding no-lines class="checkboxitems">
+            <ion-checkbox value="death" (click)="updatevalue('death')"></ion-checkbox>
+            <ion-label>Death</ion-label>
+        </ion-item>
+        <ion-item no-padding no-lines class="checkboxitems">
+            <ion-checkbox value="hospitalaized" (click)="updatevalue('hospitalaized')"></ion-checkbox>
+            <ion-label>Hospitalized</ion-label>
+        </ion-item>
+        <ion-item no-padding no-lines class="checkboxitems">
+            <ion-checkbox value="disability" (click)="updatevalue('disability')"></ion-checkbox>
+            <ion-label>Disability</ion-label>
+        </ion-item>
+        <ion-item no-padding no-lines class="checkboxitems">
+            <ion-checkbox value="medicallySignificant" (click)="updatevalue('medicallySignificant')"></ion-checkbox>
+            <ion-label>Medically Significant</ion-label>
+        </ion-item>
+        <ion-item no-padding no-lines class="checkboxitems">
+            <ion-checkbox value="lifethreatening" (click)="updatevalue('lifethreatening')"></ion-checkbox>
+            <ion-label>Life-threatening</ion-label>
+        </ion-item>
+        <ion-item no-padding no-lines class="checkboxitems">
+            <ion-checkbox value="interventionRequired" (click)="updatevalue('interventionRequired')"></ion-checkbox>
+            <ion-label>Intervention Required</ion-label>
+        </ion-item>
+
+        <ion-item no-padding no-lines class="checkboxitems">
+            <ion-checkbox value="congenitalAnomaly" (click)="updatevalue('congenitalAnomaly')"></ion-checkbox>
+            <ion-label>Congenital Anomaly</ion-label>
+        </ion-item>
+
+        <ion-item no-padding class="commontextarea">
+            <ion-label stacked>Other</ion-label>
+            <ion-textarea></ion-textarea>
+        </ion-item>
+
+    </ion-list>
+
+    <!-- Other -->
+
+    <ion-list no-margin no-lines class="commonlineinputs">
+        <ion-item no-padding no-lines class="checkboxitems">
+            <ion-checkbox value="lackEfficacy" (click)="updatevalue('lackEfficacy')"></ion-checkbox>
+            <ion-label>Lack of efficacy</ion-label>
+        </ion-item>
+        <ion-item no-padding no-lines class="checkboxitems">
+            <ion-checkbox value="adverseDrug" (click)="updatevalue('adverseDrug')"></ion-checkbox>
+            <ion-label>Adverse drug withdrawal reaction</ion-label>
+        </ion-item>
+        <ion-item no-padding no-lines class="checkboxitems">
+            <ion-checkbox value="infection" (click)="updatevalue('infection')"></ion-checkbox>
+            <ion-label>Infection</ion-label>
+        </ion-item>
+        <ion-item no-padding no-lines class="checkboxitems">
+            <ion-checkbox value="progressionDisease" (click)="updatevalue('progressionDisease')"></ion-checkbox>
+            <ion-label>Progression of disease</ion-label>
+        </ion-item>
+        <ion-item no-padding no-lines class="checkboxitems">
+            <ion-checkbox value="droppedStudy" (click)="updatevalue('droppedStudy')"></ion-checkbox>
+            <ion-label>Dropped from study due to event</ion-label>
+        </ion-item>
+
+    </ion-list>
+    <div class="loginbutton">
+        <button ion-button block round class="primarybtn" color="primarymain" (click)="submitForm()">Save</button>
+    </div>
+</ion-content>

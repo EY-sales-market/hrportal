@@ -1,0 +1,285 @@
+[{
+    "screenName": "Patient",
+    "fields": [{
+            "fieldName": "Patient ID",
+            "validateField": "Yes",
+            "fieldPlaceHolderName": "Patient ID",
+            "fieldType": "textField",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": []
+        },
+        {
+            "fieldName": "Initials",
+            "validateField": "Yes",
+            "fieldPlaceHolderName": "Initials",
+            "fieldType": "DropDown",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": [{
+                "valuesID": "1",
+                "valuesName": "Mr."
+            },
+            {
+                "valuesID": "2",
+                "valuesName": "Mis."
+            },
+            {
+                "valuesID": "3",
+                "valuesName": "Mrs."
+            }
+        ]
+        },
+        {
+            "fieldName": "First Name",
+            "validateField": "Yes",
+            "fieldPlaceHolderName": "Please enter first name",
+            "fieldType": "textField",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": []
+        },
+        {
+            "fieldName": "Middle Name",
+            "validateField": "No",
+            "fieldPlaceHolderName": "Please enter middle name",
+            "fieldType": "textField",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "MI",
+            "case": "",
+            "values": []
+        },
+        {
+            "fieldName": "Last Name",
+            "validateField": "Yes",
+            "fieldPlaceHolderName": "Please enter last name",
+            "fieldType": "textField",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "Last Name",
+            "case": "",
+            "values": []
+        },
+        {
+            "fieldName": "Date Of Birth",
+            "validateField": "No",
+            "fieldPlaceHolderName": "MMM-DD-YYYY",
+            "fieldType": "datePicker",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "DOB",
+            "case": "datePicker",
+            "values": []
+        },
+        {
+            "fieldName": "Gender",
+            "validateField": "No",
+            "fieldPlaceHolderName": "Please enter your gender.",
+            "fieldType": "DropDown",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": [{
+                "valuesID": "1",
+                "valuesName": "Male"
+            },
+            {
+                "valuesID": "2",
+                "valuesName": "Female"
+            },
+            {
+                "valuesID": "3",
+                "valuesName": "Other"
+            }
+        ]
+        },
+        {
+            "fieldName": "Ethinicity",
+            "validateField": "No",
+            "fieldPlaceHolderName": "Please enter a ethinicity",
+            "fieldType": "DropDown",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": [{
+                "valuesID": "1",
+                "valuesName": "Caucasian"
+            },
+            {
+                "valuesID": "2",
+                "valuesName": "African"
+            },
+            {
+                "valuesID": "3",
+                "valuesName": "South Asian"
+            },
+            {
+                "valuesID": "4",
+                "valuesName": "Slavic"
+            },
+            {
+                "valuesID": "5",
+                "valuesName": "Native American"
+            }, {
+                "valuesID": "6",
+                "valuesName": "South American"
+            }
+        ]
+        },
+        {
+            "fieldName": "Height",
+            "validateField": "No",
+            "fieldPlaceHolderName": "Please enter your height.",
+            "fieldType": "numericTextField",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": []
+        },
+        {
+            "fieldName": "Units",
+            "validateField": "No",
+            "fieldPlaceHolderName": "Height Units",
+            "fieldType": "DropDown",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": [{
+                "valuesID": "1",
+                "valuesName": "cm"
+            },
+            {
+                "valuesID": "2",
+                "valuesName": "Feet"
+            }
+        ]
+        },
+        {
+            "fieldName": "Pregnant",
+            "validateField": "No",
+            "fieldPlaceHolderName": "Pregnant",
+            "fieldType": "DropDown",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": [{
+                "valuesID": "1",
+                "valuesName": "Yes"
+            },
+            {
+                "valuesID": "2",
+                "valuesName": "No"
+            }
+        ]
+        },
+        {
+            "fieldName": "Occupation",
+            "validateField": "No",
+            "fieldPlaceHolderName": "Please enter Occupation",
+            "fieldType": "textField",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "DOB",
+            "case": "",
+            "values": []
+        },
+        {
+            "fieldName": "Weight",
+            "validateField": "Yes",
+            "fieldPlaceHolderName": "Please enter your weight.",
+            "fieldType": "numericTextField",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": []
+        },
+        {
+            "fieldName": "Units",
+            "validateField": "No",
+            "fieldPlaceHolderName": "Weight Units",
+            "fieldType": "DropDown",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": [{
+                "valuesID": "1",
+                "valuesName": "Kilograms"
+            },
+            {
+                "valuesID": "2",
+                "valuesName": "Pounds"
+            }
+        ]
+        },
+        {
+            "fieldName": "LMP Date",
+            "validateField": "No",
+            "fieldPlaceHolderName": "MMM-DD-YYYY",
+            "fieldType": "datePicker",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "DOB",
+            "case": "",
+            "values": []
+        },
+        {
+            "fieldName": "Address",
+            "validateField": "No",
+            "fieldPlaceHolderName": "Please enter a address",
+            "fieldType": "textField",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": []
+        },
+        {
+            "fieldName": "Country",
+            "validateField": "No",
+            "fieldPlaceHolderName": "Country",
+            "fieldType": "counrtySelection",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": []
+        },
+        {
+            "fieldName": "State",
+            "validateField": "No",
+            "fieldPlaceHolderName": "State",
+            "fieldType": "textField",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": []
+        },
+        {
+            "fieldName": "City",
+            "validateField": "No",
+            "fieldPlaceHolderName": "City",
+            "fieldType": "textField",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": []
+        },
+        {
+            "fieldName": "Postal Code",
+            "validateField": "No",
+            "fieldPlaceHolderName": "Postal Code",
+            "fieldType": "numericTextField",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": []
+        },
+        {
+            "fieldName": "Phone",
+            "validateField": "No",
+            "fieldPlaceHolderName": "",
+            "fieldType": "numericTextField",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": []
+        }
+    ]
+}]

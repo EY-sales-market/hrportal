@@ -1,0 +1,64 @@
+<!--
+  Generated template for the CreateProjectPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title *ngIf='!status'>Create Project</ion-title>
+    <ion-title *ngIf='status'>Edit Project</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item>
+        <ion-label position="floating">Project Name</ion-label>
+        <ion-input type="text" [(ngModel)]="PROJECTNAME" placeholder="Enter project name"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Manager EmailID</ion-label>
+          <ion-input type="email" [(ngModel)]="MANAGER_EMP_ID" placeholder="Enter Manager Employee email-id"></ion-input>
+        </ion-item>
+      <ion-item>
+          <ion-label position="floating">Start Date</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="STARTDATE" placeholder="Select start date"></ion-datetime>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">End Date</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="ENDDATE" placeholder="Select end date"></ion-datetime>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Billed Assets</ion-label>
+          <ion-input type="number" [(ngModel)]="BILLED_ASSETS" placeholder="Enter billed assets"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Budget</ion-label>
+          <ion-input type="number" [(ngModel)]="BUDGET" placeholder="Enter Project budget"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Partner</ion-label>
+          <ion-input type="text" [(ngModel)]="PARTNER" placeholder="Enter partner info."></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Agent EmailID</ion-label>
+            <ion-input type="email" [(ngModel)]="SALES" placeholder="Enter sales person email-id"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-toggle [(ngModel)]="paid"></ion-toggle>
+              <ion-label>
+               Paid
+              </ion-label>
+            </ion-item>
+<ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col col="6"><button class="butt"  (click)="closeModel()" >cancel</button></ion-col>
+      <ion-col col="6"><button class="butt" (click)="saveModel()">save</button></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-item>
+
+
+
+</ion-content>

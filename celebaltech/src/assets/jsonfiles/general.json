@@ -1,0 +1,56 @@
+[{
+    "screenName": "General Information",
+    "fields": [{
+            "fieldName": "Report Type",
+            "validateField": "Yes",
+            "fieldPlaceHolderName": "Report Type",
+            "fieldType": "DropDown",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": [{
+                    "valuesID": "1",
+                    "valuesName": "Spontaneous"
+                },
+                {
+                    "valuesID": "2",
+                    "valuesName": "Clinical study"
+                },
+                {
+                    "valuesID": "3",
+                    "valuesName": "Post authorization study"
+                }
+            ]
+        },
+        {
+            "fieldName": "Country",
+            "validateField": "No",
+            "fieldPlaceHolderName": "Country",
+            "fieldType": "counrtySelection",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": []
+        },
+        {
+            "fieldName": "Initial Receipt Date",
+            "validateField": "Yes",
+            "fieldPlaceHolderName": "Initial Receipt Date",
+            "fieldType": "datePicker",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "todayDate",
+            "values": []
+        },
+        {
+            "fieldName": "Narrative",
+            "validateField": "Yes",
+            "fieldPlaceHolderName": "Narrative",
+            "fieldType": "textView",
+            "isvisible": "Yes",
+            "dateBaseFieldName": "",
+            "case": "",
+            "values": []
+        }
+    ]
+}]

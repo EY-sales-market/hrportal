@@ -1,0 +1,62 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons start>
+            <button ion-button menuToggle color="lighmain">
+                <ion-icon name="md-menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>Home</ion-title>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h2 class="welcomeText">Welcome {{showname}} !</h2>
+
+    <h5 class="todayText">What would you like to do today?</h5>
+
+    <!--
+    <div class="accordion_card animated fadeIn" *ngFor="let i of [i]" [ngClass]="{active: isGroupShown(i)}">
+        <div class="accordion_card_header" (click)="toggleGroup(i)">
+            <p>
+                <ion-icon name="md-mic"></ion-icon>Report an adverse event
+            </p>
+            <ion-icon class="header-dropicon" [name]="isGroupShown(i) ? 'arrow-down' : 'arrow-forward'"></ion-icon>
+        </div>
+        <div class="accordion_card_body" *ngIf="isGroupShown(i)">
+
+            <p class="primaryoutlinebtn" (click)="quickentry()">Quick entry
+                <ion-icon name="arrow-forward"></ion-icon>
+            </p>
+            <p class="primaryoutlinebtn" (click)="fullentry()">Full data entry
+                <ion-icon name="arrow-forward"></ion-icon>
+            </p>
+
+        </div>
+    </div> -->
+
+    <div class="dashboardbtn">
+        <div class="divlist" (click)="hr()">HR</div>
+        <div class="divlist" (click)="lMan()">Leave Management</div>
+        <div class="divlist" (click)="bookFood()">Food</div>
+        <div class="divlist"  (click)="timeSheet()">TimeSheet</div>
+        <div class="divlist" (click)="appTimeSheet()">Aprrove TimeSheet</div>
+        <div class="divlist" (click)="foodHistory()">Food History</div>
+        <div class="divlist" (click)="leaveHistory()">Leave History</div>
+        <div class="divlist" (click)="reports()">Report</div>
+        <div class="divlist" *ngIf="show" (click)="projects()">Projects</div>
+        <div class="divlist" *ngIf="show" (click)="request()">Update-Request</div>
+        <!-- <button ion-button block round class="primarybtn" color="lightwhitemain">
+            Product information
+        </button>
+
+        <button ion-button block round class="primarybtn" color="lightwhitemain">
+            My reports
+        </button>
+
+        <button ion-button block round class="primarybtn" color="lightwhitemain">
+            Dashboard
+        </button> -->
+    </div>
+
+</ion-content>

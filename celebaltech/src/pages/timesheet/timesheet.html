@@ -1,0 +1,87 @@
+<!--
+  Generated template for the TimesheetPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>timesheet</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+    <div *ngIf="!loadData" class="loader">
+
+      </div>
+      <div *ngIf="loadData">
+    <!-- <ion-item no-padding class="header"> -->
+        <ion-grid class="header">
+            <ion-row >
+                <ion-col col-2 ><ion-icon class="icon" name="search"></ion-icon></ion-col>
+                <ion-col col-8><ion-input type="tel" placeholder="search" [(ngModel)]="query" ></ion-input></ion-col>
+                <ion-col col-2><a (click)="presentAlertPrompt()"><ion-icon class="icon" name="add-circle-outline" ></ion-icon></a></ion-col>
+            </ion-row>
+        </ion-grid>
+    <!-- </ion-item> -->
+       <ion-grid>
+          <ion-row class="head" >
+              <ion-col sort [sortKey]="'projectname'" [data]="data" col-6>Project Name</ion-col>
+              <ion-col sort [sortKey]="'billed_hours'" [data]="data" col-2>Billed Hours</ion-col>
+              <!-- <ion-col col-2>T. ID</ion-col> -->
+              <ion-col  sort [sortKey]="'isapproved'" [data]="data"col-2>Aprrove</ion-col>
+              <ion-col (click)="sortDate()" col-2>Billed Date</ion-col>
+          </ion-row>
+          <div *ngFor="let data of data| search:'timesheetid,projectname':query ; let i=index" id="#prj">
+          <ion-row >
+              <ion-col col-6><a (click)="detail(i)">{{data.projectname}}</a></ion-col>
+              <ion-col col-2>{{data.billed_hours}}</ion-col>
+              <ion-col col-2>{{data.isapproved}}</ion-col>
+              <ion-col col-2>{{data.bill_date}}</ion-col>
+              <hr>
+          </ion-row>
+          <div *ngIf="detailData[i]" padding>
+            <ion-row>
+              <ion-col col-6 class="detailkey">Project ID</ion-col>
+              <ion-col col-6>{{data.projectid}}</ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-6 class="detailkey">Timesheet ID</ion-col>
+              <ion-col col-6>{{data.timesheetid}}</ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-6 class="detailkey">Employee Mail-ID</ion-col>
+              <ion-col col-6>{{data.emp_id}}</ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-6 class="detailkey">Bill Date</ion-col>
+              <ion-col col-6>{{data.bill_date}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6 class="detailkey">Task Type</ion-col>
+            <ion-col col-6>{{data.task_type}}</ion-col>
+        </ion-row>
+
+          <ion-row>
+            <ion-col col-6 class="detailkey">Approved By</ion-col>
+            <ion-col col-6>{{data.approved_by_emp_id}}</ion-col>
+        </ion-row>
+          <ion-row>
+              <ion-col col-6 class="detailkey">Task Description</ion-col>
+              <ion-col col-6>{{data.task_description}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6 class="detailkey">Billable</ion-col>
+            <ion-col col-6>{{data.Billable}}</ion-col>
+        </ion-row>
+          <ion-row>
+              <ion-col col-6></ion-col>
+              <ion-col col-6 ><a (click)="DeletePrompt(data,i)"><ion-icon class="icon1" name="trash"></ion-icon>Delete </a></ion-col>
+          </ion-row>
+          <hr>
+        </div>
+        </div>
+
+      </ion-grid>
+      </div>
+</ion-content>

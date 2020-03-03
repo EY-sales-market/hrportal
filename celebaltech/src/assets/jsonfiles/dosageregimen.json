@@ -1,0 +1,100 @@
+[{
+	"screenName": "Dosage Regimen",
+	"isMulti": "Yes",
+	"fields": [{
+			"fieldName": "Start Date / Time",
+			"validateField": "Yes",
+			"fieldPlaceHolderName": "MMM-DD-YYYY",
+			"fieldType": "datePicker",
+			"isvisible": "Yes",
+			"dateBaseFieldName": "Start Date / Time",
+			"case": "",
+			"values": []
+		},
+		{
+			"fieldName": "Stop Date / Time",
+			"validateField": "Yes",
+			"fieldPlaceHolderName": "MMM-DD-YYYY",
+			"fieldType": "datePicker",
+			"isvisible": "Yes",
+			"dateBaseFieldName": "Stop Date / Time",
+			"case": "",
+			"values": []
+		},
+		{
+			"fieldName": "Dose",
+			"validateField": "No",
+			"fieldPlaceHolderName": "Please enter dose",
+			"fieldType": "numericTextField",
+			"isvisible": "Yes",
+			"dateBaseFieldName": "",
+			"case": "",
+			"values": []
+		},
+		{
+			"fieldName": "Units",
+			"validateField": "No",
+			"fieldPlaceHolderName": "Dose Units",
+			"fieldType": "DropDown",
+			"isvisible": "Yes",
+			"dateBaseFieldName": "",
+			"case": "",
+			"values": [{
+					"valuesID": "1",
+					"valuesName": "milligrams"
+				},
+				{
+					"valuesID": "2",
+					"valuesName": "milliliters"
+				},
+				{
+					"valuesID": "2",
+					"valuesName": "micrograms"
+				},
+				{
+					"valuesID": "2",
+					"valuesName": "mpoule"
+				}
+			]
+		},
+		{
+			"fieldName": "Dose description",
+			"validateField": "No",
+			"fieldPlaceHolderName": "Please enter dose description",
+			"fieldType": "textField",
+			"isvisible": "Yes",
+			"dateBaseFieldName": "",
+			"case": "",
+			"values": []
+		},
+		{
+			"fieldName": "Batch No. / Lot No.",
+			"validateField": "No",
+			"fieldPlaceHolderName": "Please enter Batch No. / Lot No.",
+			"fieldType": "textField",
+			"isvisible": "Yes",
+			"dateBaseFieldName": "",
+			"case": "",
+			"values": []
+		},
+		{
+			"fieldName": "Package ID",
+			"validateField": "No",
+			"fieldPlaceHolderName": "Please enter Package ID",
+			"fieldType": "textField",
+			"isvisible": "Yes",
+			"dateBaseFieldName": "",
+			"case": "",
+			"values": []
+		}, {
+			"fieldName": "Expiration Date",
+			"validateField": "Yes",
+			"fieldPlaceHolderName": "MMM-DD-YYYY",
+			"fieldType": "datePicker",
+			"isvisible": "Yes",
+			"dateBaseFieldName": "Expiration Date",
+			"case": "",
+			"values": []
+		}
+	]
+}]

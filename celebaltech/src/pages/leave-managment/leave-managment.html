@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Leave Managment</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content *ngIf="EmployeeType =='employee'">
+  <ion-item>
+    <ion-label position="floating">Date</ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="query" placeholder="Date for Leave from.."></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Date</ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="query1" placeholder="Date for Leave to.."></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Description</ion-label>
+    <ion-textarea rows="10" cols="50" [(ngModel)]="task_des" placeholder="Enter Reason here..."></ion-textarea>
+  </ion-item>
+  <ion-list radio-group [(ngModel)]="type">
+    <ion-item>
+      <ion-label>Leave</ion-label>
+      <ion-radio value="LEA" checked></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Remote Work</ion-label>
+      <ion-radio value="WFM"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+  <!-- <ion-item> -->
+    <ion-grid>
+      <ion-row>
+        <ion-col style="margin: 3%;text-align: center;" class="butt" col="6" (click)="closeModel()">History</ion-col>
+        <ion-col style="margin: 3%;text-align: center;" class="butt" col="6" (click)="saveModel()">Request</ion-col>
+      </ion-row>
+    </ion-grid>
+  <!-- </ion-item> -->
+</ion-content>
+<ion-content *ngIf="EmployeeType =='admin'">
+  <div *ngIf="!values" class="loader">
+
+  </div>
+
+
+  <ion-card *ngFor="let value of values;let i=index">
+    <ion-card-content>
+      <ion-card-title style="color:#c95e2e;">
+        {{value.EmployeeID.substring(0, value.EmployeeID.lastIndexOf("@"))}}
+      </ion-card-title>
+      <ion-card-title>
+        <div *ngIf="value.status=='WFM';else other_content">Remote work</div>
+        <ng-template #other_content>Leave</ng-template>
+      </ion-card-title>
+      <p class="container" *ngIf="value.reason.length >40" [class.show]="show[i]">{{value.reason}}</p>
+      <p class="btnShow"  *ngIf="value.reason.length >40" (click)="show[i]= !show[i]">{{ show[i] ? 'Read less': 'Read More....' }}</p>
+
+    <p *ngIf="value.reason.length <= 40" >{{value.reason}}</p>
+
+    </ion-card-content>
+    <!-- DOLA: "2019-10-23"
+    DOLF: "2019-10-23"
+    DOLT: "2019-10-25"
+    EmployeeID: "prarbdh.ranjan@celebaltech.com"
+    isApproved: "N"
+    reason: "pls approve my leave i have to go for family function."
+    sNO: 1
+    status: "WFM"
+  isValid;else other_content">
+    content here ...
+</div>
+
+<ng-template #other_content>other content here...</ng-template> -->
+    <!-- <ion-item> -->
+
+    <ion-grid>
+      <ion-row class="headLeave">
+
+        <!-- <ion-col col-2><ion-icon name="calendar"></ion-icon></ion-col> -->
+        <ion-col col-6>
+          <p>from:{{value.DOLF}}</p>
+        </ion-col>
+        <ion-col col-6>
+          <p>to:{{value.DOLT}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+
+      <ion-row>
+
+        <!-- <ion-col col-2><ion-icon name="calendar"></ion-icon></ion-col> -->
+        <ion-col class="LeaveBtn" col-6>
+          <button ion-button color="primarymain" outline icon-only (click)="acceptLeave(i)">
+            Accept
+          </button></ion-col>
+        <ion-col class="LeaveBtn" col-6>
+          <button ion-button color="primarymain" outline icon-only (click)="rejectLeave(i)">
+            Reject
+          </button></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <div *ngIf="totaldata==0 && values" style="text-align: center;margin-top: 50vw;font-size: x-large;">all are busy in work <br> <ion-icon name="sad" style="    font-size: 60px;"></ion-icon>
+
+  </div>
+</ion-content>

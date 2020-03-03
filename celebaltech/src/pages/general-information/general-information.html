@@ -1,0 +1,69 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>General Information</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <form [formGroup]="generalInfo" *ngIf="formFields!=''">
+        <ion-list no-margin no-lines class="commonlineinputs" *ngFor="let formfield of formFields ">
+            <input type='hidden' *ngIf="formfield.fieldType == 'counrtySelection'" formControlName="{{formfield.fieldName}}" />
+            <ion-item no-padding class="customselect" *ngIf="formfield.isvisible=='Yes'">
+                <ion-label stacked>{{formfield.fieldName}}</ion-label>
+
+                <ion-select *ngIf="formfield.fieldType == 'DropDown'" formControlName="{{formfield.fieldName}}" interface="action-sheet" placeholder="{{formfield.fieldPlaceHolderName}}">
+                    <ion-option *ngFor="let name  of formfield.values">{{name.valuesName}}</ion-option>
+                </ion-select>
+                <ion-label *ngIf="formfield.fieldType == 'counrtySelection'" no-padding class="customselect" (click)="openCountry( formfield.fieldName )">{{Country}}
+
+                </ion-label>
+                <!-- <ion-label *ngIf="formfield.fieldType == 'counrtySelection'" no-padding class="customselect" (click)="openCountry( formfield.fieldName )">{{Country}} </ion-label> -->
+
+
+                <ion-datetime *ngIf=" formfield.fieldType=='datePicker' &&  checkdate(formfield)"  formControlName="{{formfield.fieldName}}"></ion-datetime>
+                <ion-textarea *ngIf="formfield.fieldType=='textView'" formControlName="{{formfield.fieldName}}"></ion-textarea>
+            </ion-item>
+
+            <!-- <ion-item no-padding class="customselect ">
+                <ion-label stacked>Report Type</ion-label>
+                <ion-select formControlName="reportType " interface="action-sheet " placeholder="Report type ">
+                    <ion-option *ngFor="let name of reportType ">{{name}}</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item no-padding class="customselect " (click)="openCountry() ">
+                <ion-label stacked>Country</ion-label>
+                <ion-label>{{Country}}</ion-label>
+                <input type='hidden' formControlName="country ">
+               <ion-select placeholder="Country " formControlName="country ">
+                    <ion-option *ngFor="let name of countrylist ">{{name}}</ion-option>
+                </ion-select>  
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>Initial Receipt Date</ion-label>
+                <ion-datetime formControlName="initial_receipt_details "></ion-datetime>
+            </ion-item>
+
+            <ion-item no-padding>
+                <ion-label stacked>Central Receipt Date</ion-label>
+                <ion-datetime formControlName="centeral_receipt_date "></ion-datetime>
+            </ion-item>  
+
+            <ion-item no-padding>
+                <ion-label stacked>Initial Justification</ion-label>
+                <ion-input type="text " formControlName="initial_justification "></ion-input>
+            </ion-item>  
+
+            <ion-item no-padding class="commontextarea ">
+                <ion-label stacked>Narrative</ion-label>
+                <ion-textarea formControlName="narrative"></ion-textarea>
+            </ion-item> -->
+        </ion-list>
+
+        <div class="loginbutton">
+            <button ion-button block round class="primarybtn" color="primarymain" (click)="submitForm()">Save</button>
+        </div>
+
+    </form>
+</ion-content>

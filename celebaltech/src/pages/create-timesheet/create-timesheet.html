@@ -1,0 +1,63 @@
+<!--
+  Generated template for the CreateTimesheetPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Create Timesheet</ion-title>
+    <ion-buttons>
+      <button ion-button icon-only (click)="closeModel()">
+        <ion-icon class="icon-close" name="arrow-round-back"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="!projectID_data || !Roles;else elseBlock" class="loader">
+
+  </div>
+  <ng-template #elseBlock>
+    <ion-item >
+        <ion-label position="floating">Project Name</ion-label>
+        <ion-select [(ngModel)]="prj">
+          <ion-option *ngFor="let prj of projectID_data" [value] = "prj.Id" >{{prj.PROJECTNAME}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Datetime</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="date" placeholder="Select Bill Date"></ion-datetime>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Task type</ion-label>
+          <ion-select [(ngModel)]="role">
+            <ion-option *ngFor="let role of Roles" [value] = "role" >{{role}}</ion-option>
+          </ion-select>
+        </ion-item>
+      <ion-item>
+          <ion-label position="floating">Billed Hours</ion-label>
+          <ion-input type="number" [(ngModel)]="billHour" placeholder="Billed Hours"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Description</ion-label>
+          <ion-textarea rows="6" cols="20" [(ngModel)]="task_des" placeholder="Enter Task Description here..."></ion-textarea>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Billable</ion-label>
+        <ion-toggle slot="end" [(ngModel)]="billable" ></ion-toggle>
+      </ion-item>
+      <br>
+<ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col style="margin:3%;text-align:center;" class="butt" col="6" (click)="closeModel()" >cancel</ion-col>
+      <ion-col style="margin:3%;text-align:center;"  class="butt" col="6" (click)="saveModel()">save</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-item>
+
+
+</ng-template>
+</ion-content>

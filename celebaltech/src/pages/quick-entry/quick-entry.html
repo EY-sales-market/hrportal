@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Quick Entry</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <form [formGroup]="signinForm">
+        <ion-list no-margin no-lines class="commonlineinputs">
+            <ion-item no-padding class="customselect" (click)="openCountry()">
+                <ion-label stacked>Country of Incidence</ion-label>
+                <ion-label>{{Country}}</ion-label>
+                <input type='hidden' formControlName="country">
+                <!-- <ion-select placeholder="Country" formControlName="country">
+                    <ion-option *ngFor="let name  of countrylist">{{name}}</ion-option>
+
+                </ion-select> -->
+            </ion-item>
+            <ion-item no-padding>
+                <ion-label stacked>Receipt Date</ion-label>
+                <ion-datetime formControlName="date" display-format="YYYY-MM-DD"></ion-datetime>
+            </ion-item>
+            <ion-item no-padding>
+                <ion-label stacked>Product Name</ion-label>
+                <ion-input type="text" formControlName="product_name"></ion-input>
+            </ion-item>
+            <ion-item no-padding>
+                <ion-label stacked>Adverse Event</ion-label>
+                <ion-input type="text" formControlName="adverse_event"></ion-input>
+            </ion-item>
+            <ion-item no-padding class="commontextarea">
+                <ion-label stacked>Patient Details</ion-label>
+                <ion-textarea formControlName="patient_details"></ion-textarea>
+            </ion-item>
+        </ion-list>
+
+        <div class="loginbutton">
+            <button ion-button block round class="primarybtn" color="primarymain" (click)="submitForm()">Save</button>
+        </div>
+
+    </form>
+</ion-content>
